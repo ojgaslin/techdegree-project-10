@@ -8,8 +8,12 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var courses = require('./routes/courses');
 
-// create the Express app
 const app = express();
+// enable CORS
+const cors = require('cors');
+app.use(cors());
+app.options('*', cors());
+
 
 app.use(express.json());
 //setup routes
