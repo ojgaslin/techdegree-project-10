@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import React, { Component } from 'react';
+import { userContext } from './components/context.js'
 import './App.css';
 import axios from 'axios';
 import Header from './components/header'
@@ -16,13 +17,15 @@ class App extends React.Component{
   constructor(){
     super();
     this.state = {
-      courses: [] 
+      courses: [],
+      user: {}
     }
   }
 
   componentDidMount() {
     //this.performSearch();
     this.loadCourses();  
+    this.setState({user: {name: 'olivia gaslin'}})
   }
 
   loadCourses(){
@@ -45,7 +48,7 @@ class App extends React.Component{
 
   render(){
     return (
-
+          <userContext.Provider value={this.state.user}>
               <BrowserRouter>
                           <div className="App">
               <Header/>
@@ -60,7 +63,7 @@ class App extends React.Component{
                   </Switch>
                   </div>
                 </BrowserRouter>
-
+                </userContext.Provider>
           )
         }
 }

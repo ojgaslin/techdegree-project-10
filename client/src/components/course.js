@@ -1,13 +1,19 @@
 import React, {Component} from 'react';
+//import provider from "./context.js";
+
 
 export class Course extends Component{
-constructor() {
+    
+    constructor() {
     super();
 }
+
+
 render() {
     return(
         <div class="wrap">
         <h2>Course Detail</h2>
+        
         <form>
             <div class="main--flex">
                 <div>
