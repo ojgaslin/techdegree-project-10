@@ -38,6 +38,7 @@ router.get('/', authenticateUser, function(req, res, next) {
 //creating a new user accounts
 router.post('/', async(req, res, next) => {
     console.log("user post hit")
+    console.log(req);
         var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
         if(!req.body.emailAddress.match(mailformat))
         {

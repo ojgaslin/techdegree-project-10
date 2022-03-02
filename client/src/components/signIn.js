@@ -39,9 +39,10 @@ onSumbit(e) {
             }}
             )
             .then(response => {
+                this.context.user = response.data
                 this.context.firstName = response.data.firstName
+                this.context.user.password = this.state.password
                 console.log(this.context)
-                console.log(response);
             })
 }
     render(){

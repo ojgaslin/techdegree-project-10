@@ -7,6 +7,9 @@ import Header from './components/header'
 import SignIn from './components/signIn';
 import SignUp from './components/signUp';
 import Course from './components/course';
+import CreateCourse from './components/createCourse';
+import Courses from './components/courses';
+import UpdateCourse from './components/updateCourse';
 import {
   BrowserRouter,
   Route,
@@ -25,7 +28,9 @@ class App extends React.Component{
   componentDidMount() {
     //this.performSearch();
     this.loadCourses();  
-    this.setState({user: {name: 'olivia gaslin'}})
+    this.setState({user: {firstName: '',
+    lastName: ''
+  }})
   }
 
   loadCourses(){
@@ -39,7 +44,7 @@ class App extends React.Component{
   })
   .then(response => {
     this.setState({courses: response.data})
-    console.log(this.state)
+    //console.log(this.state)
   })
   .catch(error => {
 
@@ -54,9 +59,10 @@ class App extends React.Component{
               <Header/>
                   <Switch>
                     <Route exact path="/"/>
-                    <Route path="/courses/create"/>
-                    <Route path="/courses/:id/update"/>
-                    <Route path="/courses/:id" render={() => <Course/>}/>
+                    <Route path="/courses/create" render={() => <CreateCourse/>}/>
+                    <Route path="/courses/:id?/update" render={() => <UpdateCourse/>}/>
+                    <Route path="/courses/:id?" render={() => <Course/>}/>
+                    <Route path="/courses"/>
                     <Route path="/signin" render={() => <SignIn/>}/>
                     <Route path="/signup" render={() => <SignUp/>}/>
                     <Route path="/signout"/>

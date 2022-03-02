@@ -12,8 +12,7 @@ export class SignUp extends Component {
             password: '',
             confirmPassword: ''
         };
-        this.handleInputChange = this.handleInputChange.bind(this);
-        //this.onSumbit = this.onSumbit.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this); 
     }
     handleInputChange(event) {
         const target = event.target;
@@ -28,13 +27,9 @@ export class SignUp extends Component {
     onSumbit() {
         console.log(this.state);
         axios.post('http://localhost:5000/api/users',
-            {
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: this.state
-            })
+
+                this.state
+            )
             .then(response => {
                 console.log(response);
             })

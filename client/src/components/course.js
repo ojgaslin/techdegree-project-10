@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {userContext} from './context';
 //import provider from "./context.js";
 
 
@@ -11,6 +12,14 @@ export class Course extends Component{
 
 render() {
     return(
+        <div>
+        <div class="actions--bar">
+            <div class="wrap">
+                <a class="button" href="update-course.html">Update Course</a>
+                <a class="button" href="#">Delete Course</a>
+                <a class="button button-secondary" href="index.html">Return to List</a>
+            </div>
+        </div>
         <div class="wrap">
         <h2>Course Detail</h2>
         
@@ -54,9 +63,10 @@ render() {
             </div>
         </form>
     </div>
+    </div>
     );
   }
 
 }
-
+Course.contextType = userContext;
 export default Course;

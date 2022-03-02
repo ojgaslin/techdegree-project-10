@@ -14,8 +14,9 @@ render(){
                 <nav>
                     <ul class="header--signedout">
                         <li><a>{user.firstName}</a></li>
-                        <li><a href="signup">Sign Up</a></li>
-                        <li><a href="signin">Sign In</a></li>
+                        <li><a href="/signup">Sign Up</a></li>
+                        <li><a href="/signin">Sign In</a></li>
+                        <li><a href="/courses/create">test</a></li>
                     </ul>
                 </nav>
             </div>
